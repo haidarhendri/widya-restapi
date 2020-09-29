@@ -1,11 +1,13 @@
-var pg = require('pg');
-var conString = "postgres://root:hendri1998@localhost:5432/widya-restapi";
+const { Pool } = require("pg");
+const conn = new Pool({
+    user: "postgres",
+    host: "localhost",
+    database: "widya-restapi",
+    password: "root",
+    port: "5432"
+  });
 
-var client = new pg.Client(conString);
-client.connect();
-
-
-conn.connect((err)=>{
+  conn.connect((err)=>{
     if(err) throw err;
     console.log('PgSQL Connected');
 });
