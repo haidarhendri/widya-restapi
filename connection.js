@@ -1,15 +1,16 @@
-const { Pool } = require("pg");
-const conn = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "widya-restapi",
-    password: "root",
-    port: "5432"
-  });
+var mysql = require('mysql');
 
-  conn.connect((err)=>{
-    if(err) throw err;
-    console.log('PgSQL Connected');
+const conn = mysql.createConnection({	
+    host:'localhost',	
+    user:'root',	
+    password:'',	
+    database:'widya-restapi',	
+    port: '3306'	
 });
 
-module.exports = conn;
+conn.connect((err)=>{
+    if(err) throw err;
+    console.log('MySQL Connected');
+});
+
+module.exports = conn; 
