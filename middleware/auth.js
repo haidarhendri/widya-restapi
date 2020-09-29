@@ -1,5 +1,5 @@
 var connection = require('../connection');
-var mysql = require('mysql');
+var pg = require('pg');
 var md5 = require('md5');
 var response = require('../res');
 var jwt = require('jsonwebtoken');
@@ -17,7 +17,7 @@ exports.registrasi = function (req, res) {
      var query = "SELECT email FROM ?? WHERE ??=?";
      var table = ["user", "email", post.email];
 
-     query = mysql.format(query, table);
+     query = pg.format(query, table);
 
      connection.query(query, function (error, rows) {
           if (error) {
@@ -26,7 +26,7 @@ exports.registrasi = function (req, res) {
                if (rows.length == 0) {
                     var query = "INSERT INTO ?? SET ?";
                     var table = ["user"];
-                    query = mysql.format(query, table);
+                    query = pg.format(query, table);
                     connection.query(query, post, function (error, rows) {
                          if (error) {
                               console.log(error);
@@ -53,7 +53,7 @@ exports.login = function (req, res) {
      var query = "SELECT * FROM ?? WHERE ??=? AND ??=?";
      var table = ["user", "password", md5(post.password), "email", post.email];
 
-     query = mysql.format(query, table);
+     query = pg.format(query, table);
 
      connection.query(query, function (error, rows) {
           if (error) {
@@ -78,7 +78,7 @@ exports.login = function (req, res) {
                     var query = "INSERT INTO ?? SET ?";
                     var table = ["access_token"];
 
-                    query = mysql.format(query, table);
+                    query = pg.format(query, table);
                     connection.query(query, data, function (error, rows) {
                          if (error) {
                               console.log(error);

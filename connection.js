@@ -1,17 +1,13 @@
-var mysql = require('mysql');
+var pg = require('pg');
+var conString = "postgres://root:hendri1998@localhost:5432/widya-restapi";
 
-//buat koneksi database
-const conn = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'widya-restapi',
-    port: '3306'
-});
+var client = new pg.Client(conString);
+client.connect();
+
 
 conn.connect((err)=>{
     if(err) throw err;
-    console.log('MySQL Connected');
+    console.log('PgSQL Connected');
 });
 
 module.exports = conn;
