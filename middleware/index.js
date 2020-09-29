@@ -7,7 +7,7 @@ var verification = require('./verification');
 router.post('/api/register', auth.registrasi);
 router.post('/api/login', auth.login);
 
-router.get('/api/profile', verification(), auth.profile);
+router.get('/api/profile/:id', verification(), auth.profile);
 
 
 module.exports = router;

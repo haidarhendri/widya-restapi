@@ -6,8 +6,6 @@ module.exports = function (app) {
     app.route('/')
         .get(json.index);
 
-    app.route('/view/:id')
-        .get(json.viewById);
     app.route('/create')
         .post(json.createUser);
 
