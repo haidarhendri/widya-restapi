@@ -1,14 +1,14 @@
 'use strict';
 
 module.exports = function (app) {
-    var jsonku = require('./controller');
+    var json = require('./controller');
 
     app.route('/')
-        .get(jsonku.index);
+        .get(json.index);
 
     app.route('/view/:id')
-        .get(jsonku.tampilberdasarkanid);
+        .get(json.viewById);
     app.route('/create')
-        .post(jsonku.tambahMahasiswa);
+        .post(json.createUser);
 
 }

@@ -1,11 +1,13 @@
 var express = require('express');
 var auth = require('./auth');
 var router = express.Router();
-// var verifikation = require('./verification');
+var verification = require('./verification');
 
 //daftarkan menu registrasi
 router.post('/api/register', auth.registrasi);
 router.post('/api/login', auth.login);
+
+router.get('/api/profile', verification(), auth.profile);
 
 
 module.exports = router;
