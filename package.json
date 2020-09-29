@@ -1,0 +1,27 @@
+{
+  "name": "widya-restapi",
+  "version": "1.0.0",
+  "description": "Widya REST API application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haidarhendri/widya-restapi.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "node",
+    "js",
+    "javascript",
+    "widya"
+  ],
+  "author": "haidarhendri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haidarhendri/widya-restapi/issues"
+  },
+  "homepage": "https://github.com/haidarhendri/widya-restapi#readme"
+}
